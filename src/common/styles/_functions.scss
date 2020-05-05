@@ -1,0 +1,4 @@
+@function rem($size){
+  $remValue: $size/16px;
+  @return #{$remValue}rem;
+}

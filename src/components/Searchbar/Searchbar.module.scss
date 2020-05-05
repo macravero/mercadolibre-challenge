@@ -1,0 +1,13 @@
+@import '../../common//styles/variables';
+@import '../../common/styles/mixins';
+.Searchbar{
+  width: 100%;
+  margin: 0 2rem;
+  color: $color-gray-dark;
+  background: $color-yellow;
+  @include fontSize(18px);
+  &search_input{
+    border: none;
+    width: 80%;
+  }
+};
