@@ -18,7 +18,6 @@ const ItemDetailsProvider = ({children}) => {
 
   useEffect(() =>{
     if (request){
-      setLoaded(false);
       const getItemData = async () =>{
         const url = ENDPOINTS.BASE + ENDPOINTS.SEARCH_BY_ID + query;
         const res = await axios.get(url);
@@ -48,7 +47,9 @@ const ItemDetailsProvider = ({children}) => {
         setQuery,
         saveRequest,
         itemDetails,
+        setItemDetails,
         loaded,
+        setLoaded,
         categoryList
       }}
     >

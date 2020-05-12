@@ -7,7 +7,7 @@ import Item from './components/Item';
 
 
 const ItemDetails = props => {
-  const { itemDetails : {item}, loaded, saveRequest, setQuery, categoryList } = useItemDetailsContext();
+  const { itemDetails : {item}, loaded, saveRequest, setQuery, categoryList, setItemDetails, setLoaded } = useItemDetailsContext();
   const { match: {params}} = props;
   
   useEffect(()=>{
@@ -15,6 +15,10 @@ const ItemDetails = props => {
     if (id.trim() !== '') {
       saveRequest(true);
       setQuery(id);
+    };
+    return () =>{
+      setItemDetails([]);
+      setLoaded(false);
     };
   },[]);
 

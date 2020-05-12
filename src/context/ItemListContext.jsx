@@ -33,6 +33,7 @@ const ItemListProvider = (props) => {
   
   useEffect(() =>{
     if (request){
+      setItemList([]);
       const getItems = async () =>{
         const url = ENDPOINTS.BASE + ENDPOINTS.SEARCH_BY_QUERY + query;
         const res = await axios.get(url);
