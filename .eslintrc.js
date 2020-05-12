@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
+    jest: true,
   },
   extends: [
     'plugin:react/recommended',
@@ -14,6 +15,13 @@ module.exports = {
     },
     ecmaVersion: 2018,
     sourceType: 'module',
+  },
+  settings: {    
+    "import/resolver": {      
+      "node": {        
+        "moduleDirectory": ["node_modules", "src/"]      
+      }    
+    }  
   },
   plugins: [
     'react',
@@ -29,6 +37,7 @@ module.exports = {
     "no-console": "warn",
     'react/jsx-one-expression-per-line': 'off',
     "import/prefer-default-export": "off",
-    "no-param-reassign":"off"
+    "no-param-reassign":"off",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
   }
 };

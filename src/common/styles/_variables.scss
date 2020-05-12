@@ -1,5 +1,14 @@
 $base-font-size: 10px;
+$color-white: #fff;
 $color-yellow: #FFE600;
 $color-gray-dark: #333333;
 $color-gray-medium: #999999;
 $color-gray-light: #EEEEEE;
+$color-blue: #3483FA;
+$search-border: 0 rgba(0,0,0,.2);
+$grid-split: 13;
+$grid-coverage: 11;
+
+// accessibility
+$outline-focused: 4px solid $color-blue;
+$outline-button-focused: 4px solid black;

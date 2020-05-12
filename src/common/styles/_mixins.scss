@@ -1,6 +1,19 @@
 @import './functions';
+@import './variables';
 
 @mixin fontSize($size) {
   font-size: $size; //px fallback
   font-size: rem($size);
+}
+@mixin accesibleFocus(){
+  outline: $outline-focused;
+  outline-offset: 0;
+}
+@mixin accesibleButtonFocus(){
+  outline: $outline-button-focused;
+  outline-offset: 0;
+}
+// split page in 13 grid columns, occupy 11 of them.
+@mixin gridWidth(){
+  max-width: calc((100vw/13)*11);
 }

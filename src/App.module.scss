@@ -1,7 +1,11 @@
-@import './common//styles/variables';
+@import '~common//styles/variables';
+@import '~common/styles/functions';
 
-.App {
+.container {
   color: $color-gray-dark;
   text-align: center;
+  background: $color-gray-light;
+  min-height: 100vh;
+  padding-bottom: rem(120px);
 }
 

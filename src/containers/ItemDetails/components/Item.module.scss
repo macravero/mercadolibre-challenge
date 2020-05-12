@@ -1,0 +1,93 @@
+@import '~common/styles/variables';
+@import '~common/styles/mixins';
+@import '~common/styles/functions';
+
+.container{
+  @include gridWidth();
+  background: $color-white;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  padding: rem(32px);
+  box-sizing: border-box;
+  color: $color-gray-dark;
+
+  &__row{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    &__item_details{
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      box-sizing: border-box;
+      width: 30%;
+      padding: 0 5% 0 5%;
+
+      & p{
+        margin: 0;
+        padding: 0;
+        justify-self: flex-start;
+      }
+
+      & span{
+        @include fontSize(14px);
+      }
+      
+      & h1{
+        @include fontSize(46px);
+        margin: 0;
+        font-weight: normal;
+      }
+
+      & h3{
+        @include fontSize(24px);
+        margin: rem(16px) 0 rem(32px) 0;
+      }
+
+      & button{
+        margin-top: rem(32px);
+        background-color: $color-blue;
+        color: $color-white;
+        border: none;
+        border-radius: 4px;
+        height: rem(32px);
+        cursor: pointer;
+
+        &:focus{
+          @include accesibleButtonFocus();
+        }
+      }
+    }
+    
+    & img{
+      width: 680px;
+      height: auto;
+      margin-left: calc(5% - 16px);
+    }
+
+    &__description_wrapper{
+      margin-top: 5%;
+      width: 60%;
+      text-align: left;
+
+      & h2{
+        @include fontSize(28px);
+        text-align: left;
+        margin: 0 0 rem(36px) 0;
+      }
+
+      & p{
+        @include fontSize(16px);
+        overflow : hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+        color: $color-gray-medium;
+        margin: 0;
+      }
+    }
+  }
+}

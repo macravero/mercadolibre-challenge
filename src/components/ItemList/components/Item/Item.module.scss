@@ -1,0 +1,69 @@
+@import '~common/styles/variables';
+@import '~common/styles/mixins';
+@import '~common/styles/functions';
+
+.wrapper_link{
+  color: inherit;
+  text-decoration: none;
+
+  &:focus{
+    & .container{
+        @include accesibleFocus();
+    }
+  }
+}
+.container{
+  width: 100%;
+  background: white;
+  display: flex;
+  padding: rem(16px);
+  box-sizing: border-box;
+}
+.thumbnail{
+  min-width: rem(180px);
+  min-height: rem(180px);
+  border-radius: 4px;
+  background-image: url('../../../../assets/placeholder.png')
+}
+.details_wrapper{
+  text-align: left;
+  width: 100%;
+  padding-left: rem(16px);
+
+  &__price{
+    @include fontSize(24px);
+    margin-bottom: rem(32px);
+    display: flex;
+    position: relative;
+    font-weight: normal;
+  }
+
+  &__title{
+    margin: 0;
+    @include fontSize(18px);
+    max-width: 60%;
+  }
+  &__free_shipping{
+    background: url('../../../../assets/logo_shipping_2x.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: rem(20px);
+    width: rem(20px);
+    margin-left: 10px;
+    align-self: center;
+  }
+  &__location{
+    align-self: center;
+    @include fontSize(12px);
+    position: absolute;
+    top: 2px;
+    right: 20%;
+    color: $color-gray-medium;
+    // aligning left based off the longest location: Capital Federal
+    min-width: rem(90px);
+  }
+}
+hr{
+  margin: 0 rem(16px);
+  border: 1px solid $color-gray-light;
+}

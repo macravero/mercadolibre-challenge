@@ -1,37 +1,51 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
-import Searchbar from './components/Searchbar/Searchbar';
-import * as U from './common/utils/utils';
-import {ITEM_AMOUNT} from './common/constants/constants';
-import module from './App.module.scss';
+/* eslint-disable react/jsx-props-no-spreading */
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Searchbar from 'containers/Searchbar/Searchbar';
+import ItemList from 'components/ItemList/ItemList';
+import PageNotFound from 'components/PageNotFound/PageNotFound';
+import ItemDetails from 'containers/ItemDetails/ItemDetails';
+import ItemListProvider from 'context/ItemListContext';
+import ItemDetailsProvider from 'context/ItemDetailsContext';
+import { preload } from 'common/utils/utils';
+import placeholder from 'assets/placeholder.png';
+import styles from './App.module.scss';
 
 function App() {
-  const [query, setQuery] = useState('cuchillo');
-  const [items, setItems] = useState([]);
-  const [breadcrumb, setBreadcrumb] = useState([]);
-
-  useEffect(() => {
-  	const fetchData = async () => {
-    	const response = await axios.get(`https://api.mercadolibre.com/sites/MLA/search?q=${query}`);
-      const crumb = U.returnCategories(response.data);
-      setBreadcrumb(crumb);
-      setItems(response.data.results.slice(0,ITEM_AMOUNT));
-    };
-    fetchData();
-  }, [query]);
+  preload(placeholder);
   return (
-    <div className={module.div}>
-      <Searchbar></Searchbar>
-      <div>{breadcrumb.map((el,i, arr) => {
-        if(arr.length -1 === i){
-          return (<span key={el.name}> {el.name} </span>);
-        }
-        return (<span key={el.name}> {el.name} &gt; </span>);  
-      }
-      )}
+    <BrowserRouter>
+      <div className={styles.container}>
+        <ItemListProvider>
+          <ItemDetailsProvider>
+            <Searchbar />
+            <Switch>
+              <Route
+                exact 
+                path='/items?:search'
+                render={(props) =><ItemList {...props} placeholder={placeholder} />} 
+              />
+              <Route
+                exact
+                path='/items/:id'
+                render={(props) =><ItemDetails {...props} placeholder={placeholder} />}
+              />
+              <Route
+                exact
+                path="/"
+                // small hack to avoid rendering an empty homepage. A homepage could be useful but only searchbar was provided as a consistent element.
+                render={()=> <></>}
+              />
+              <Route
+                exact
+                path="/*"
+                render={()=><PageNotFound />}
+              />
+            </Switch>
+          </ItemDetailsProvider>
+        </ItemListProvider>
       </div>
-      {items.map(el => <div key={el.id} id={el.id}>{el.title}</div>)}
-    </div>
+    </BrowserRouter>
   );
 }
 

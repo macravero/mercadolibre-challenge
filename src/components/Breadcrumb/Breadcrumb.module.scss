@@ -1,0 +1,12 @@
+@import '~common/styles/variables';
+@import '~common/styles/functions';
+
+.container{
+  max-width: calc((100vw/13)*11);
+  text-align: left;
+  margin: 0 auto;
+  padding-top: rem(16px);
+  padding-bottom: rem(16px);
+  color: $color-gray-medium;
+  word-spacing: 5px;
+}
