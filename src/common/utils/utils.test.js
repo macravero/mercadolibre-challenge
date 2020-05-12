@@ -1,5 +1,4 @@
 import { stringifyByKey, categoryParser, setDecimals, itemListParser, itemParser, formatCurrency } from './utils';
-
 // STRINGIFYBYKEY
 test('stringifyByKey ARR equals RES', () =>{
   const ARR = [
@@ -107,6 +106,9 @@ test('categoryParser should parse DATA to array of strings in shape of RES', () 
 
 test('setDecimals with ARS should return 2', () =>{
   expect(setDecimals('ARS')).toBe(2);
+});
+test('setDecimals with no value should default return 2', ()=>{
+  expect(setDecimals()).toBe(2);
 });
 
 // ITEM LIST PARSER
@@ -226,6 +228,6 @@ test('formatCurrency with ARS and 10000 should return $ 10.000.00',()=>{
   expect(formatCurrency('ARS',10000)).toEqual('$ 10.000.00');
 });
 
-test('formatCurrency with ARS and no value should return $ 0.00',()=>{
-  expect(formatCurrency('ARS')).toEqual('$ 0.00');
+test('formatCurrency with no values should return a default case',()=>{
+  expect(formatCurrency()).toEqual('$ 0');
 });

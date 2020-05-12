@@ -99,7 +99,7 @@ export const formatCurrency = (currencyId, amount = 0) =>{
   //   currency: intl.currency,
   //   minimumFractionDigits: 0
   // });
-  return `${intl.symbol} ${amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}`;
+  return `${intl.symbol} ${amount.toFixed(intl.decimals).replace(/\d(?=(\d{3})+\.)/g, '$&.')}`;
 };
 
 // This is just a suggestion for preloading multiple assets from the site. Fixed by server side rendering I guess.

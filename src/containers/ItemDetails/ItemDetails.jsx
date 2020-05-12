@@ -27,7 +27,7 @@ const ItemDetails = props => {
           title={item.title}
           condition={item.condition}
           sold_quantity={item.sold_quantity}
-          price={formatCurrency(item.price.currencyId,item.price.amount)}
+          price={formatCurrency(item.price.currency,item.price.amount)}
           description={item.description}
         />
       )}

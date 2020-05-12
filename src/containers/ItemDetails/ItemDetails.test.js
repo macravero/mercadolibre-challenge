@@ -17,7 +17,7 @@ describe('<ItemDetails />',()=>{
           condition: 'itemCondition',
           sold_quantity: 100,
           price:{
-            currencyId: 'ARS',
+            currency: 'ARS',
             amount: 10000
           },
           description: 'itemDescription'
