@@ -57,7 +57,6 @@ const ItemDetailsProvider = ({children}) => {
   );
 };
 
-// prop validation
 ItemDetailsProvider.propTypes ={
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),

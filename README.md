@@ -191,13 +191,15 @@ Las pantallas son levemente accesibles pero hay espacio para mejora.
 * testear accesibilidad con alguna herramienta.
 * mejorar detalles de accesibilidad.
 
-### No tengo landing/inicio:
+### No tengo landing/inicio ni 404:
 
 No hay diseño previsto para la home, y siento que se ve muy vacia la searchbar sola. Deberia ver las posibilidades que me brinda la API para dar una buena landing page/homepage a la app.
 
+Tampoco tengo un diseño de una pagina no encontrada en las rutas, por lo que puse un mensaje simple de error.
+
 ### Mejorar el coverage
 
-I suck at testing(sic)
+I suck at testing(sic).
 
 ### Refactor a Redux y class-based containers (opcional):
 
@@ -206,3 +208,9 @@ Me gustaria probar si es mas sencillo realizar TDD con una redux store y class-b
 * I suck at context API?
 * forkear el repo para implementar Redux en un refactor
 * refactorizar containers como class-based con lifecycle hooks.
+
+### Algunas utils podrian mejorarse:
+
+Ciertas utils son un poco repetitivas en su funcionalidad y podrian ser mas abarcativas. Voy a ir sumandolas a la lista mientras se me vayan ocurriendo:
+
+* ItemDetailsParser e ItemListParser podrian ser una sola funcion ItemParser que llame a ambas implementaciones para darle reusabilidad.

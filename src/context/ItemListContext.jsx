@@ -1,5 +1,3 @@
-
-/* eslint-disable no-debugger */
 import React, {createContext, useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
@@ -45,7 +43,6 @@ const ItemListProvider = (props) => {
           categories: categoryParser(res.data),
           items: itemListParser(res.data.results.slice(0,ITEM_AMOUNT))
         };
-        debugger;
         setItemList(parsed.items);
         setCategoryList(parsed.categories);
       };
@@ -66,7 +63,7 @@ const ItemListProvider = (props) => {
     </ItemListContext.Provider>
   );
 };
-// prop validation
+
 ItemListProvider.propTypes ={
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
